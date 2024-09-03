@@ -71,7 +71,7 @@ st.image(
     caption = "Cataract Eyes")
 
 #about the web app
-st.header("About the Web App")
+st.header("About the WebApp")
 
 #details about the project
 with st.expander("Web App 🌐"):
