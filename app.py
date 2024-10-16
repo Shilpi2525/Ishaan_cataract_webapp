@@ -129,7 +129,7 @@ if page == "**Home**":
 
 elif page == "**About Us**":
 
-    # About Us page content
+    # Design About Us page content
     st.title("*About Us* 😊") #you can use keyboard shortcuts to get emojis
     st.markdown("<h2 style='color: blue;'>🌐 Who We Are: YouthForElders</h2>", unsafe_allow_html=True)
     
@@ -140,7 +140,7 @@ elif page == "**About Us**":
 
 elif page == "**How App Works**":
 
-    # How App Works page content
+    # Design How App Works page content
     st.title("*How the App Works*🔔")
     st.write("""
         This web app utilizes deep learning models like ConvNeXt for feature extraction from eye images, 
@@ -155,7 +155,7 @@ elif page == "**How App Works**":
     """)
 
 elif page == "**Future Enhancement**":
-    # Future Enhancement page content
+    # Design Future Enhancement page content
     st.title("*Future Enhancements* 💡") 
     st.write("""
         In the future, we aim to:
@@ -166,7 +166,7 @@ elif page == "**Future Enhancement**":
     """)
 
 elif page == "**Our Impact**":
-    # Future Enhancement page content
+    # Design Our Impact page content
     st.title("*Our Impact* ✅ ")  #you can use keyboard shortcuts to get emojis
     st.write('''
     Global Reach: Briefly talk about how you aim to help underserved communities globally, using examples like India (one doctor per 10,000 people).
