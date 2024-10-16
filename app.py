@@ -10,18 +10,6 @@ from keras.layers import GlobalAveragePooling2D
 from keras.models import Model
 
 
-# CSS for background color
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background-color: #f1f2bf;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 image_size = (224, 224)
 
 image_name = "user_eye.png"
@@ -29,6 +17,21 @@ image_name = "user_eye.png"
 PREDICTION_LABELS = ["Cataract", "Normal"]
 
 PREDICTION_LABELS.sort()
+
+# CSS for background color ,use any hex code for background
+CSS_STYLE = """
+    <style>
+    .stApp {
+        background-color: #a18a89; /* Change this to any color you prefer */
+    }
+    [data-testid="stSidebar"]{
+        background-color: #e0ded3;  /* Change this to any color you prefer */
+        }
+    </style> 
+    """
+# set css styles
+st.markdown(CSS_STYLE, unsafe_allow_html=True)
+
 
 # Function to load the ConvNeXt model
 @st.cache_resource
@@ -55,21 +58,23 @@ def featurization(image_path, model):
     predictions = model.predict(img_preprocessed)
     return predictions
 
-# Load models
+# Load the model
 convext_featurized_model = get_convext_model()
 cataract_model = load_sklearn_models("ConvNexXtlarge_MLP_best_model")
 
-# Sidebar navigation
-st.sidebar.title("Welcome to my app")
-page = st.sidebar.radio("Go to", ["Home", "About Us", "How App Works", "Future Enhancement","Our Impact"])
+# Design Sidebar navigation
+st.sidebar.title(":rainbow[**WELCOME**]")
+page = st.sidebar.radio("Go to", ["**Home**", "**About Us**", "**How App Works**", "**Future Enhancement**","**Our Impact**"])
 
-if page == "Home":
-    st.title("Cataract Image Predictor")
+
+if page == "**Home**":
+    #st.title("*Cataract Image Predictor*") #or use this 
+    st.markdown("<h1 style='color: white;'>Welcome to Our Cataract Image Predictor App</h1>", unsafe_allow_html=True) #or use this
 
     # Home page content
     st.image(
         "https://mediniz-images-2018-100.s3.ap-south-1.amazonaws.com/post-images/chokhm_1663869443.png",
-        caption="Cataract Eyes"
+        caption="Cataract Prediction"
     )
       
     st.header("About the web app")
@@ -118,19 +123,19 @@ if page == "Home":
                 st.header("Prediction Probability")
                 st.subheader(f"{probability:.2f}")
 
-elif page == "About Us":
+elif page == "**About Us**":
     # About Us page content
-    st.title("About Us")
+    st.title("*About Us* 😊")
+    st.markdown("<h2 style='color: blue;'>🌐 Who We Are: YouthForElders</h2>", unsafe_allow_html=True)
+    
     st.write("""
-        Welcome to our Cataract Image Predictor app! Who We Are: A brief paragraph introducing your team, your nonprofit, and the goal behind the project 
-        (e.g., YouthForElders, helping underserved communities).
-        Mission: Describe the bigger vision—using AI to bring medical care to areas with limited access.
-
+        We are a dedicated team aiming to help underserved communities by providing access to vital medical care. 
+        Our mission is to use AI technology to bring healthcare solutions to areas with limited resources.
     """)
 
-elif page == "How App Works":
+elif page == "**How App Works**":
     # How App Works page content
-    st.title("How the App Works")
+    st.title("*How the App Works*🔔")
     st.write("""
         This web app utilizes deep learning models like ConvNeXt for feature extraction from eye images, 
         followed by classification using a machine learning model. The app processes the image, extracts 
@@ -143,9 +148,9 @@ elif page == "How App Works":
         4. The result is displayed along with a probability score.
     """)
 
-elif page == "Future Enhancement":
+elif page == "**Future Enhancement**":
     # Future Enhancement page content
-    st.title("Future Enhancements 💡") 
+    st.title("*Future Enhancements* 💡") 
     st.write("""
         In the future, we aim to:
         - Improve the model's accuracy by including more diverse datasets.
@@ -154,9 +159,9 @@ elif page == "Future Enhancement":
         - Provide options for users to track their eye health over time.
     """)
 
-elif page == "Our Impact":
+elif page == "**Our Impact**":
     # Future Enhancement page content
-    st.title("Our Impact ✅ ")  #use https://emojipedia.org/ to get emojis
+    st.title("*Our Impact* ✅ ")  #use https://emojipedia.org/ to get emojis
     st.write('''
     Global Reach: Briefly talk about how you aim to help underserved communities globally, using examples like India (one doctor per 10,000 people).
     Data-Driven: Highlight any data or impact metrics you’ve collected or plan to.''')
