@@ -18,7 +18,7 @@ PREDICTION_LABELS = ["Cataract", "Normal"]
 
 PREDICTION_LABELS.sort()
 
-# CSS for background color ,use any hex code for background
+# create CSS for background colors 
 CSS_STYLE = """
     <style>
     .stApp {
@@ -63,9 +63,13 @@ convext_featurized_model = get_convext_model()
 cataract_model = load_sklearn_models("ConvNexXtlarge_MLP_best_model")
 
 # Design Sidebar navigation
-st.sidebar.title(":rainbow[**WELCOME**]")
+
+st.sidebar.title(":rainbow[**WELCOME**]") 
+#or st.sidebar.title("WELCOME") for simple text 
+
 page = st.sidebar.radio("Go to", ["**Home**", "**About Us**", "**How App Works**", "**Future Enhancement**","**Our Impact**"])
 
+#create content of each page 
 
 if page == "**Home**":
     #st.title("*Cataract Image Predictor*") #or use this 
@@ -124,8 +128,9 @@ if page == "**Home**":
                 st.subheader(f"{probability:.2f}")
 
 elif page == "**About Us**":
+
     # About Us page content
-    st.title("*About Us* 😊")
+    st.title("*About Us* 😊") #you can use keyboard shortcuts to get emojis
     st.markdown("<h2 style='color: blue;'>🌐 Who We Are: YouthForElders</h2>", unsafe_allow_html=True)
     
     st.write("""
@@ -134,6 +139,7 @@ elif page == "**About Us**":
     """)
 
 elif page == "**How App Works**":
+
     # How App Works page content
     st.title("*How the App Works*🔔")
     st.write("""
@@ -161,7 +167,7 @@ elif page == "**Future Enhancement**":
 
 elif page == "**Our Impact**":
     # Future Enhancement page content
-    st.title("*Our Impact* ✅ ")  #use https://emojipedia.org/ to get emojis
+    st.title("*Our Impact* ✅ ")  #you can use keyboard shortcuts to get emojis
     st.write('''
     Global Reach: Briefly talk about how you aim to help underserved communities globally, using examples like India (one doctor per 10,000 people).
     Data-Driven: Highlight any data or impact metrics you’ve collected or plan to.''')
